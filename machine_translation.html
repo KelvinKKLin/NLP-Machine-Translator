@@ -11824,10 +11824,10 @@ div#notebook {
 
 
 
-<div id="ad8937ca-afad-4d9b-a686-18bb95d50b13"></div>
+<div id="8abd2031-aba2-4172-9af1-239f7776ca51"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#ad8937ca-afad-4d9b-a686-18bb95d50b13');
+var element = $('#8abd2031-aba2-4172-9af1-239f7776ca51');
 IPython.notebook.set_autosave_interval(0)
 </script>
 </div>
@@ -12677,10 +12677,9 @@ new jersey est relaxant chaud au cours de mai et il est novembre &lt;PAD&gt; &lt
 <span class="sd">    :return: Keras model built, but not trained</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.01</span>
-    
     <span class="n">input_layer</span>     <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-    <span class="n">embed_layer</span>     <span class="o">=</span> <span class="n">Embedding</span><span class="p">(</span><span class="n">english_vocab_size</span><span class="p">,</span> <span class="n">french_vocab_size</span><span class="p">)(</span><span class="n">input_layer</span><span class="p">)</span>
-    <span class="n">gru_layer</span>       <span class="o">=</span> <span class="n">GRU</span><span class="p">(</span><span class="n">french_vocab_size</span><span class="p">)</span>
+    <span class="n">embed_layer</span>     <span class="o">=</span> <span class="n">Embedding</span><span class="p">(</span><span class="n">english_vocab_size</span><span class="p">,</span> <span class="mi">64</span><span class="p">)(</span><span class="n">input_layer</span><span class="p">)</span>
+    <span class="n">gru_layer</span>       <span class="o">=</span> <span class="n">GRU</span><span class="p">(</span><span class="n">english_vocab_size</span><span class="p">)</span>
     <span class="n">bidir_layer</span>     <span class="o">=</span> <span class="n">Bidirectional</span><span class="p">(</span><span class="n">gru_layer</span><span class="p">)(</span><span class="n">embed_layer</span><span class="p">)</span>
     
     <span class="c1"># See: https://discussions.udacity.com/t/capstone-project-model-final-assertion-error/304642/4</span>
@@ -12688,7 +12687,7 @@ new jersey est relaxant chaud au cours de mai et il est novembre &lt;PAD&gt; &lt
     <span class="n">gru2_layer</span>      <span class="o">=</span> <span class="n">GRU</span><span class="p">(</span><span class="n">french_vocab_size</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">decode_layer</span>    <span class="o">=</span> <span class="n">Bidirectional</span><span class="p">(</span><span class="n">gru2_layer</span><span class="p">)(</span><span class="n">repeat_layer</span><span class="p">)</span>
     
-    <span class="n">output_layer</span>   <span class="o">=</span> <span class="n">TimeDistributed</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">french_vocab_size</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))(</span><span class="n">decode_layer</span><span class="p">)</span>
+    <span class="n">output_layer</span>    <span class="o">=</span> <span class="n">TimeDistributed</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="n">french_vocab_size</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softmax&#39;</span><span class="p">))(</span><span class="n">decode_layer</span><span class="p">)</span>
     <span class="n">model</span>           <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">input_layer</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">output_layer</span><span class="p">)</span>    
     <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">sparse_categorical_crossentropy</span><span class="p">,</span>
                   <span class="n">optimizer</span><span class="o">=</span><span class="n">Adam</span><span class="p">(</span><span class="n">learning_rate</span><span class="p">),</span>
@@ -12696,7 +12695,6 @@ new jersey est relaxant chaud au cours de mai et il est novembre &lt;PAD&gt; &lt
     <span class="k">return</span> <span class="n">model</span>
 
 <span class="n">tests</span><span class="o">.</span><span class="n">test_model_final</span><span class="p">(</span><span class="n">model_final</span><span class="p">)</span>
-
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Final Model Loaded&#39;</span><span class="p">)</span>
 </pre></div>
@@ -12749,9 +12747,7 @@ new jersey est relaxant chaud au cours de mai et il est novembre &lt;PAD&gt; &lt
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO: Train neural network using model_final</span>
     <span class="n">model</span> <span class="o">=</span> <span class="n">model_final</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_tk</span><span class="o">.</span><span class="n">word_index</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_tk</span><span class="o">.</span><span class="n">word_index</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-    
-    <span class="c1">#batch_size reduced by half to prevent local GPU from crashing</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">validation_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 
     <span class="c1">## DON&#39;T EDIT ANYTHING BELOW THIS LINE</span>
     <span class="n">y_id_to_word</span> <span class="o">=</span> <span class="p">{</span><span class="n">value</span><span class="p">:</span> <span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">y_tk</span><span class="o">.</span><span class="n">word_index</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
@@ -12787,30 +12783,30 @@ new jersey est relaxant chaud au cours de mai et il est novembre &lt;PAD&gt; &lt
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Train on 110288 samples, validate on 27573 samples
 Epoch 1/10
-380s - loss: 3.5943 - acc: 0.4033 - val_loss: 3.4859 - val_acc: 0.4093
+294s - loss: 2.0245 - acc: 0.5473 - val_loss: 1.0896 - val_acc: 0.6952
 Epoch 2/10
-399s - loss: 3.4831 - acc: 0.4082 - val_loss: 3.4869 - val_acc: 0.4093
+332s - loss: 0.9753 - acc: 0.7251 - val_loss: 0.7108 - val_acc: 0.7911
 Epoch 3/10
-407s - loss: 3.4790 - acc: 0.4082 - val_loss: 3.4786 - val_acc: 0.4093
+337s - loss: 0.5389 - acc: 0.8382 - val_loss: 0.3683 - val_acc: 0.8913
 Epoch 4/10
-407s - loss: 3.4773 - acc: 0.4082 - val_loss: 3.4969 - val_acc: 0.4093
+350s - loss: 0.2708 - acc: 0.9196 - val_loss: 0.2011 - val_acc: 0.9409
 Epoch 5/10
-409s - loss: 3.4798 - acc: 0.4082 - val_loss: 3.4832 - val_acc: 0.4093
+336s - loss: 0.1697 - acc: 0.9488 - val_loss: 0.1537 - val_acc: 0.9532
 Epoch 6/10
-409s - loss: 3.4798 - acc: 0.4082 - val_loss: 3.4829 - val_acc: 0.4093
+333s - loss: 0.1291 - acc: 0.9604 - val_loss: 0.1276 - val_acc: 0.9611
 Epoch 7/10
-409s - loss: 3.4809 - acc: 0.4082 - val_loss: 3.4763 - val_acc: 0.4093
+332s - loss: 0.1093 - acc: 0.9663 - val_loss: 0.1215 - val_acc: 0.9635
 Epoch 8/10
-410s - loss: 3.4793 - acc: 0.4082 - val_loss: 3.4818 - val_acc: 0.4093
+340s - loss: 0.0961 - acc: 0.9706 - val_loss: 0.1173 - val_acc: 0.9658
 Epoch 9/10
-412s - loss: 3.4787 - acc: 0.4082 - val_loss: 3.4756 - val_acc: 0.4093
+339s - loss: 0.0862 - acc: 0.9737 - val_loss: 0.0985 - val_acc: 0.9702
 Epoch 10/10
-410s - loss: 3.4803 - acc: 0.4082 - val_loss: 3.4778 - val_acc: 0.4093
+338s - loss: 0.0871 - acc: 0.9734 - val_loss: 0.1008 - val_acc: 0.9704
 Sample 1:
-&lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt;
+il a vu un vieux camion jaune &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt;
 Il a vu un vieux camion jaune
 Sample 2:
-&lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt;
+new jersey est parfois calme pendant l&#39; automne et il est neigeux en avril &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt;
 &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt;
 </pre>
 </div>
