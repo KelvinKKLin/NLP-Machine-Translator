@@ -11824,10 +11824,10 @@ div#notebook {
 
 
 
-<div id="8abd2031-aba2-4172-9af1-239f7776ca51"></div>
+<div id="2f5f5ea0-ed14-4843-b1bf-e9e8df9269cf"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#8abd2031-aba2-4172-9af1-239f7776ca51');
+var element = $('#2f5f5ea0-ed14-4843-b1bf-e9e8df9269cf');
 IPython.notebook.set_autosave_interval(0)
 </script>
 </div>
@@ -12675,10 +12675,10 @@ new jersey est relaxant chaud au cours de mai et il est novembre &lt;PAD&gt; &lt
 <span class="sd">    :param english_vocab_size: Number of unique English words in the dataset</span>
 <span class="sd">    :param french_vocab_size: Number of unique French words in the dataset</span>
 <span class="sd">    :return: Keras model built, but not trained</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>    
     <span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.01</span>
     <span class="n">input_layer</span>     <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">input_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-    <span class="n">embed_layer</span>     <span class="o">=</span> <span class="n">Embedding</span><span class="p">(</span><span class="n">english_vocab_size</span><span class="p">,</span> <span class="mi">64</span><span class="p">)(</span><span class="n">input_layer</span><span class="p">)</span>
+    <span class="n">embed_layer</span>     <span class="o">=</span> <span class="n">Embedding</span><span class="p">(</span><span class="n">english_vocab_size</span><span class="p">,</span> <span class="n">french_vocab_size</span><span class="p">)(</span><span class="n">input_layer</span><span class="p">)</span>
     <span class="n">gru_layer</span>       <span class="o">=</span> <span class="n">GRU</span><span class="p">(</span><span class="n">english_vocab_size</span><span class="p">)</span>
     <span class="n">bidir_layer</span>     <span class="o">=</span> <span class="n">Bidirectional</span><span class="p">(</span><span class="n">gru_layer</span><span class="p">)(</span><span class="n">embed_layer</span><span class="p">)</span>
     
@@ -12783,30 +12783,30 @@ new jersey est relaxant chaud au cours de mai et il est novembre &lt;PAD&gt; &lt
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Train on 110288 samples, validate on 27573 samples
 Epoch 1/10
-294s - loss: 2.0245 - acc: 0.5473 - val_loss: 1.0896 - val_acc: 0.6952
+291s - loss: 2.9865 - acc: 0.4421 - val_loss: 1.9308 - val_acc: 0.5258
 Epoch 2/10
-332s - loss: 0.9753 - acc: 0.7251 - val_loss: 0.7108 - val_acc: 0.7911
+307s - loss: 1.4050 - acc: 0.6354 - val_loss: 1.0085 - val_acc: 0.7319
 Epoch 3/10
-337s - loss: 0.5389 - acc: 0.8382 - val_loss: 0.3683 - val_acc: 0.8913
+316s - loss: 0.7636 - acc: 0.7870 - val_loss: 0.5624 - val_acc: 0.8396
 Epoch 4/10
-350s - loss: 0.2708 - acc: 0.9196 - val_loss: 0.2011 - val_acc: 0.9409
+325s - loss: 0.4043 - acc: 0.8880 - val_loss: 0.3317 - val_acc: 0.9085
 Epoch 5/10
-336s - loss: 0.1697 - acc: 0.9488 - val_loss: 0.1537 - val_acc: 0.9532
+324s - loss: 0.2909 - acc: 0.9206 - val_loss: 0.2318 - val_acc: 0.9387
 Epoch 6/10
-333s - loss: 0.1291 - acc: 0.9604 - val_loss: 0.1276 - val_acc: 0.9611
+326s - loss: 0.2107 - acc: 0.9432 - val_loss: 0.2155 - val_acc: 0.9419
 Epoch 7/10
-332s - loss: 0.1093 - acc: 0.9663 - val_loss: 0.1215 - val_acc: 0.9635
+327s - loss: 0.3073 - acc: 0.9128 - val_loss: 0.2488 - val_acc: 0.9314
 Epoch 8/10
-340s - loss: 0.0961 - acc: 0.9706 - val_loss: 0.1173 - val_acc: 0.9658
+327s - loss: 0.1943 - acc: 0.9461 - val_loss: 0.2032 - val_acc: 0.9451
 Epoch 9/10
-339s - loss: 0.0862 - acc: 0.9737 - val_loss: 0.0985 - val_acc: 0.9702
+328s - loss: 0.2042 - acc: 0.9425 - val_loss: 0.1778 - val_acc: 0.9503
 Epoch 10/10
-338s - loss: 0.0871 - acc: 0.9734 - val_loss: 0.1008 - val_acc: 0.9704
+326s - loss: 0.1929 - acc: 0.9453 - val_loss: 0.2582 - val_acc: 0.9244
 Sample 1:
 il a vu un vieux camion jaune &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt;
 Il a vu un vieux camion jaune
 Sample 2:
-new jersey est parfois calme pendant l&#39; automne et il est neigeux en avril &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt;
+new jersey est parfois calme ã  l&#39;automne et il est est en en &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt;
 &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt; &lt;PAD&gt;
 </pre>
 </div>
